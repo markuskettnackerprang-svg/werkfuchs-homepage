@@ -1,0 +1,477 @@
+cat > docs/index.html <<'EOF'
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WerkFuchs</title>
+    <style>
+      :root {
+        --wf-orange: #f58a1f;
+        --wf-orange-dark: #d97005;
+        --wf-blue: #1e2f55;
+        --wf-blue-soft: #edf3ff;
+        --wf-bg: #f5f7fb;
+        --wf-card: #ffffff;
+        --wf-text: #1f2937;
+        --wf-muted: #5f6b7c;
+        --wf-border: #e6ebf5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: linear-gradient(180deg, #fbfcff 0%, var(--wf-bg) 100%);
+        color: var(--wf-text);
+      }
+
+      .wrap {
+        min-height: 100vh;
+        padding: 20px 14px 40px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 980px;
+      }
+
+      .card {
+        width: 100%;
+        background: var(--wf-card);
+        border: 1px solid var(--wf-border);
+        border-radius: 18px;
+        box-shadow: 0 8px 26px rgba(30, 47, 85, 0.08);
+        padding: 22px 18px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: #fdf4ea;
+        color: #8a4f12;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--wf-blue);
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--wf-muted);
+        font-size: 1.05rem;
+        line-height: 1.55;
+      }
+
+      .lead {
+        margin: 14px 0 0;
+        color: var(--wf-text);
+        font-size: 1.08rem;
+        line-height: 1.65;
+      }
+
+      h2 {
+        color: var(--wf-blue);
+        font-size: 1.35rem;
+        margin: 30px 0 12px;
+      }
+
+      h3 {
+        color: var(--wf-blue);
+        font-size: 1.05rem;
+        margin: 0 0 8px;
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      .invite-panel {
+        background: var(--wf-blue-soft);
+        border: 1px solid #d8e5fb;
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .token-box {
+        background: #fdf4ea;
+        border: 1px solid #f8d2ab;
+        border-radius: 12px;
+        padding: 14px;
+        margin-top: 10px;
+      }
+
+      .token-label {
+        color: #8a4f12;
+        font-weight: 700;
+        margin: 0 0 6px;
+      }
+
+      .token-value {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--wf-blue);
+        word-break: break-all;
+        font-weight: 800;
+      }
+
+      ol,
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        line-height: 1.7;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        width: 100%;
+        border: 0;
+        border-radius: 12px;
+        padding: 13px 14px;
+        font-size: 1rem;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .btn-install {
+        background: var(--wf-orange);
+        color: #fff;
+      }
+
+      .btn-install:hover {
+        background: var(--wf-orange-dark);
+      }
+
+      .btn-copy {
+        background: var(--wf-blue);
+        color: #fff;
+      }
+
+      .btn-copy[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .status {
+        margin: 0;
+        min-height: 1.2em;
+        font-size: 0.92rem;
+        color: var(--wf-blue);
+      }
+
+      .section {
+        margin-top: 18px;
+      }
+
+      .feature-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .feature-card {
+        border: 1px solid var(--wf-border);
+        border-radius: 16px;
+        padding: 15px;
+        background: #fbfcff;
+      }
+
+      .feature-icon {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--wf-muted);
+        font-size: 0.96rem;
+      }
+
+      .highlight {
+        border-left: 4px solid var(--wf-orange);
+        background: #fffaf4;
+        border-radius: 14px;
+        padding: 14px 14px 14px 16px;
+        color: #3f2a12;
+      }
+
+      .hint {
+        margin-top: 18px;
+        font-size: 0.92rem;
+        color: var(--wf-muted);
+      }
+
+      .footer {
+        margin-top: 18px;
+        text-align: center;
+        color: var(--wf-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 760px) {
+        .wrap {
+          padding: 34px 22px 56px;
+        }
+
+        .card {
+          padding: 34px 32px;
+        }
+
+        .hero {
+          grid-template-columns: 1.25fr 0.75fr;
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .actions {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+
+        .status {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <div class="page">
+        <section class="card">
+          <div class="hero">
+            <div>
+              <span class="eyebrow">Werkstatt & Inventar einfach organisieren</span>
+              <h1>WerkFuchs</h1>
+              <p class="subtitle">Deine Werkstatt. Dein Inventar. Dein Team.</p>
+              <p class="lead">
+                WerkFuchs hilft dir, Werkzeuge, Material, Boxen und Kleinteile im Blick zu behalten –
+                damit du schneller findest, was du brauchst, und rechtzeitig merkst, was nachgekauft werden muss.
+              </p>
+            </div>
+
+            <div class="invite-panel">
+              <h2 id="heroTitle">WerkFuchs testen</h2>
+              <div id="tokenBox">
+                <p class="subtitle">
+                  Installiere die Testversion und lege deine eigene Werkstatt an.
+                </p>
+              </div>
+
+              <div class="actions">
+                <a class="btn btn-install" href="https://expo.dev/accounts/mkp1981/projects/werkfuchs-app/builds/67a5452b-cee9-474f-bb9a-e3c9aae41f78">
+                  WerkFuchs installieren
+                </a>
+                <button class="btn btn-copy" id="copyBtn" type="button" hidden disabled>
+                  Einladungscode kopieren
+                </button>
+                <p class="status" id="copyStatus" aria-live="polite"></p>
+              </div>
+
+              <p class="hint">
+                Dies ist eine Testversion. Wenn die Installation nicht klappt, bitte den Absender kontaktieren.
+              </p>
+            </div>
+          </div>
+
+          <section class="section" id="inviteSteps" hidden>
+            <h2 id="stepsTitle">So trittst du einem Workshop bei</h2>
+            <ol id="stepsList">
+              <li>Installiere WerkFuchs auf deinem Android-Gerät.</li>
+              <li>Öffne die App.</li>
+              <li>Tippe oben rechts auf das Menü.</li>
+              <li>Wähle „Workshop beitreten“.</li>
+              <li>Füge den Einladungscode ein.</li>
+            </ol>
+          </section>
+
+          <section class="section">
+            <h2>Was ist WerkFuchs?</h2>
+            <p>
+              WerkFuchs ist eine App für alle, die in Werkstatt, Keller, Garage oder Lager
+              endlich den Überblick behalten möchten. Du kannst Werkzeuge, Maschinen, Schrauben,
+              Dübel, Boxen und Verbrauchsmaterial digital erfassen und später gezielt wiederfinden.
+            </p>
+            <p>
+              Statt lange zu suchen, speicherst du Gegenstände mit Kategorie, Lagerort, Menge,
+              Foto und QR-Code. So weißt du schneller, was vorhanden ist, wo es liegt und was auf
+              die Einkaufsliste gehört.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Das kann WerkFuchs bisher</h2>
+
+            <div class="feature-grid">
+              <article class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3>Inventar erfassen</h3>
+                <p>
+                  Speichere Werkzeuge, Material, Maschinen, Boxen und Kleinteile mit Name,
+                  Kategorie, Lagerort, Menge und Einheit.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🔎</div>
+                <h3>Suchen & filtern</h3>
+                <p>
+                  Finde Einträge schnell über Suche, Kategorien und Lagerorte – besonders praktisch
+                  bei vielen Boxen und Kleinteilen.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🏷️</div>
+                <h3>QR-Codes & Etiketten</h3>
+                <p>
+                  Erzeuge QR-Codes und drucke Etiketten als PDF, damit Boxen und Artikel direkt
+                  mit der App verknüpft sind.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">📷</div>
+                <h3>Fotos hinzufügen</h3>
+                <p>
+                  Ergänze Artikelbilder, damit du schneller erkennst, welcher Gegenstand oder
+                  welche Box gemeint ist.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h3>Einkaufsliste</h3>
+                <p>
+                  Notiere, was fehlt oder nachgekauft werden muss, und hake erledigte Einträge ab.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Gemeinsam nutzen</h3>
+                <p>
+                  Lade weitere Personen in einen Workshop ein und verwalte gemeinsam Inventar und Material.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>KI-Unterstützung</h3>
+                <p>
+                  Teste KI-Vorschläge, um Gegenstände auf Fotos schneller zu benennen und einzuordnen.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🧰</div>
+                <h3>Kategorien verwalten</h3>
+                <p>
+                  Nutze eigene Kategorien für deine Werkstatt – zum Beispiel Schrauben, Dübel,
+                  Werkzeug, Elektrik oder Maschinen.
+                </p>
+              </article>
+
+              <article class="feature-card">
+                <div class="feature-icon">🦊</div>
+                <h3>Schrittweise weitergebaut</h3>
+                <p>
+                  WerkFuchs wird laufend verbessert. Rückmeldungen aus der Praxis fließen direkt
+                  in die Weiterentwicklung ein.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <h2>Für wen ist WerkFuchs gedacht?</h2>
+            <p>
+              WerkFuchs richtet sich an Heimwerkerinnen und Heimwerker, Bastler, Familien, Vereine,
+              Hausmeisterdienste und kleine Werkstätten, die ihre Dinge besser organisieren möchten –
+              ohne kompliziertes Warenwirtschaftssystem.
+            </p>
+
+            <div class="highlight">
+              <strong>Der Gedanke dahinter:</strong>
+              Weniger suchen, weniger doppelt kaufen, mehr Überblick über das, was schon da ist.
+            </div>
+          </section>
+        </section>
+
+        <p class="footer">WerkFuchs befindet sich im Aufbau. Feedback ist ausdrücklich willkommen.</p>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get("token");
+
+        const tokenBox = document.getElementById("tokenBox");
+        const copyBtn = document.getElementById("copyBtn");
+        const copyStatus = document.getElementById("copyStatus");
+        const heroTitle = document.getElementById("heroTitle");
+        const inviteSteps = document.getElementById("inviteSteps");
+
+        if (token) {
+          heroTitle.textContent = "Du wurdest eingeladen";
+          inviteSteps.hidden = false;
+
+          tokenBox.innerHTML =
+            '<div class="token-box">' +
+            '<p class="token-label">Einladungscode:</p>' +
+            '<p class="token-value" id="tokenValue"></p>' +
+            "</div>";
+          document.getElementById("tokenValue").textContent = token;
+
+          copyBtn.hidden = false;
+          copyBtn.disabled = false;
+
+          copyBtn.addEventListener("click", async function () {
+            try {
+              await navigator.clipboard.writeText(token);
+              copyStatus.textContent = "Einladungscode wurde kopiert.";
+            } catch (error) {
+              copyStatus.textContent =
+                "Kopieren nicht möglich. Bitte Code manuell markieren.";
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
+EOF
