@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impressum – WerkFuchs Pro</title>
+    <style>
+
+      :root {
+        --wf-orange: #f58a1f;
+        --wf-orange-dark: #d97005;
+        --wf-blue: #1e2f55;
+        --wf-blue-soft: #edf3ff;
+        --wf-bg: #f5f7fb;
+        --wf-card: #ffffff;
+        --wf-text: #1f2937;
+        --wf-muted: #5f6b7c;
+        --wf-border: #e6ebf5;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background: linear-gradient(180deg, #fbfcff 0%, var(--wf-bg) 100%);
+        color: var(--wf-text);
+      }
+
+      .wrap {
+        min-height: 100vh;
+        padding: 20px 14px 40px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .page {
+        width: 100%;
+        max-width: 980px;
+      }
+
+      .card {
+        width: 100%;
+        background: var(--wf-card);
+        border: 1px solid var(--wf-border);
+        border-radius: 18px;
+        box-shadow: 0 8px 26px rgba(30, 47, 85, 0.08);
+        padding: 22px 18px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        border-radius: 999px;
+        padding: 6px 10px;
+        background: #fdf4ea;
+        color: #8a4f12;
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--wf-blue);
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        line-height: 1;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--wf-muted);
+        font-size: 1.05rem;
+        line-height: 1.55;
+      }
+
+      .lead {
+        margin: 14px 0 0;
+        color: var(--wf-text);
+        font-size: 1.08rem;
+        line-height: 1.65;
+      }
+
+      h2 {
+        color: var(--wf-blue);
+        font-size: 1.35rem;
+        margin: 30px 0 12px;
+      }
+
+      h3 {
+        color: var(--wf-blue);
+        font-size: 1.05rem;
+        margin: 0 0 8px;
+      }
+
+      p {
+        line-height: 1.65;
+      }
+
+      .invite-panel {
+        background: var(--wf-blue-soft);
+        border: 1px solid #d8e5fb;
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .token-box {
+        background: #fdf4ea;
+        border: 1px solid #f8d2ab;
+        border-radius: 12px;
+        padding: 14px;
+        margin-top: 10px;
+      }
+
+      .token-label {
+        color: #8a4f12;
+        font-weight: 700;
+        margin: 0 0 6px;
+      }
+
+      .token-value {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--wf-blue);
+        word-break: break-all;
+        font-weight: 800;
+      }
+
+      ol,
+      ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        line-height: 1.7;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .actions {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        width: 100%;
+        border: 0;
+        border-radius: 12px;
+        padding: 13px 14px;
+        font-size: 1rem;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .btn-install {
+        background: var(--wf-orange);
+        color: #fff;
+      }
+
+      .btn-install:hover {
+        background: var(--wf-orange-dark);
+      }
+
+      .btn-copy {
+        background: var(--wf-blue);
+        color: #fff;
+      }
+
+      .btn-copy[disabled] {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .status {
+        margin: 0;
+        min-height: 1.2em;
+        font-size: 0.92rem;
+        color: var(--wf-blue);
+      }
+
+      .section {
+        margin-top: 18px;
+      }
+
+      .feature-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .feature-card {
+        border: 1px solid var(--wf-border);
+        border-radius: 16px;
+        padding: 15px;
+        background: #fbfcff;
+      }
+
+      .feature-icon {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--wf-muted);
+        font-size: 0.96rem;
+      }
+
+      .highlight {
+        border-left: 4px solid var(--wf-orange);
+        background: #fffaf4;
+        border-radius: 14px;
+        padding: 14px 14px 14px 16px;
+        color: #3f2a12;
+      }
+
+      .hint {
+        margin-top: 18px;
+        font-size: 0.92rem;
+        color: var(--wf-muted);
+      }
+
+      .footer {
+        margin-top: 18px;
+        text-align: center;
+        color: var(--wf-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 760px) {
+        .wrap {
+          padding: 34px 22px 56px;
+        }
+
+        .card {
+          padding: 34px 32px;
+        }
+
+        .hero {
+          grid-template-columns: 1.25fr 0.75fr;
+        }
+
+        .feature-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .actions {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+        }
+
+        .status {
+          grid-column: 1 / -1;
+        }
+      }
+    
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--wf-blue);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="page">
+        <div class="card">
+          <a class="back-link" href="../">← Zurück zur Startseite</a>
+
+          <section class="section" id="impressum">
+          <h2>Impressum</h2>
+
+          <h3>Angaben gemäß § 5 DDG</h3>
+          <p>
+            Markus Kettnacker-Prang<br />
+            Jöhlingerstr. 59<br />
+            75053 Gondelsheim<br />
+            Deutschland
+          </p>
+
+          <h3>Kontakt</h3>
+          <p>
+            E-Mail: support@werkfuchspro.info
+          </p>
+
+          <h3>Verantwortlich für den Inhalt</h3>
+          <p>
+            Markus Kettnacker-Prang<br />
+            Jöhlingerstr. 59<br />
+            75053 Gondelsheim<br />
+            Deutschland
+          </p>
+
+          <h3>Hinweis</h3>
+          <p>
+            WerkFuchs Pro befindet sich derzeit in Entwicklung und wird schrittweise
+            für Testnutzer vorbereitet.
+          </p>
+
+          <h3>Haftung für Inhalte</h3>
+          <p>
+            Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt.
+            Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann
+            jedoch keine Gewähr übernommen werden.
+          </p>
+
+          <h3>Haftung für Links</h3>
+          <p>
+            Diese Website kann Links zu externen Websites enthalten. Auf deren Inhalte
+            besteht kein Einfluss. Für die Inhalte verlinkter Seiten ist stets der
+            jeweilige Anbieter oder Betreiber verantwortlich.
+          </p>
+
+          <h3>Urheberrecht</h3>
+          <p>
+            Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser
+            Website unterliegen dem deutschen Urheberrecht.
+          </p>
+        </section>
+
+          <p class="footer">
+            WerkFuchs Pro befindet sich im Aufbau.
+            <br />
+            <a href="../datenschutz/">Datenschutz</a> · <a href="../impressum/">Impressum</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
