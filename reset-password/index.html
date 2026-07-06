@@ -60,10 +60,19 @@
       <h1>Passwort zurücksetzen</h1>
       <p>Wenn du den Link aus der E-Mail geöffnet hast, öffne jetzt WerkFuchs Pro.</p>
       <p>Dort kannst du dein neues Passwort eingeben.</p>
-      <a class="primary" href="werkfuchs://reset-password">App öffnen</a>
+      <a id="open-app-link" class="primary" href="werkfuchs://reset-password">App öffnen</a>
       <a class="secondary" href="https://www.werkfuchs.info">Zur WerkFuchs-Seite</a>
       <p>Falls sich die App nicht öffnet, öffne WerkFuchs Pro einfach manuell auf deinem Handy.</p>
     </section>
   </main>
+<script>
+  const openAppLink = document.getElementById("open-app-link");
+  const appUrl =
+    "werkfuchs://reset-password" +
+    window.location.search +
+    window.location.hash;
+
+  openAppLink.href = appUrl;
+</script>
 </body>
 </html>
