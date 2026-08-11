@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WerkFuchs Pro – Anleitung für Tester</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/branding/WerkFuchs_Logo_neu.svg" />
+
+  <style>
+    :root {
+      --wf-orange: #f58a1f;
+      --wf-orange-dark: #d97005;
+      --wf-blue: #1e2f55;
+      --wf-blue-soft: #edf3ff;
+      --wf-bg: #f5f7fb;
+      --wf-card: #ffffff;
+      --wf-text: #1f2937;
+      --wf-muted: #5f6b7c;
+      --wf-border: #e6ebf5;
+      --wf-green: #166534;
+      --wf-green-bg: #f0fdf4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #fbfcff 0%, var(--wf-bg) 100%);
+      color: var(--wf-text);
+    }
+
+    .wrap {
+      min-height: 100vh;
+      padding: 20px 14px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      background: var(--wf-card);
+      border: 1px solid var(--wf-border);
+      border-radius: 18px;
+      box-shadow: 0 8px 26px rgba(30, 47, 85, 0.08);
+      padding: 22px 18px;
+    }
+
+    .logo {
+      display: block;
+      width: 250px;
+      max-width: 80%;
+      margin: 0 auto 18px;
+    }
+
+    h1, h2, h3 {
+      color: var(--wf-blue);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0 0 8px;
+      font-size: clamp(1.9rem, 6vw, 2.8rem);
+    }
+
+    h2 {
+      margin-top: 34px;
+      border-bottom: 2px solid var(--wf-border);
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin-bottom: 6px;
+    }
+
+    p, li {
+      line-height: 1.65;
+    }
+
+    .intro {
+      text-align: center;
+      color: var(--wf-muted);
+      font-size: 1.08rem;
+      max-width: 700px;
+      margin: 0 auto 22px;
+    }
+
+    .important {
+      background: #fff7ed;
+      border-left: 5px solid var(--wf-orange);
+      border-radius: 12px;
+      padding: 15px 17px;
+      margin: 22px 0;
+    }
+
+    .success {
+      background: var(--wf-green-bg);
+      border-left: 5px solid #22c55e;
+      border-radius: 12px;
+      padding: 15px 17px;
+      margin: 22px 0;
+    }
+
+    .step {
+      border: 1px solid var(--wf-border);
+      border-radius: 15px;
+      padding: 16px;
+      margin: 13px 0;
+      background: #fbfcff;
+    }
+
+    .step-number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--wf-orange);
+      color: white;
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--wf-orange);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 13px 18px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: var(--wf-orange-dark);
+    }
+
+    .btn-secondary {
+      background: var(--wf-blue);
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .checklist li {
+      margin-bottom: 8px;
+    }
+
+    .day {
+      border-left: 4px solid var(--wf-blue);
+      padding: 5px 0 5px 15px;
+      margin: 18px 0;
+    }
+
+    .small {
+      color: var(--wf-muted);
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--wf-muted);
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 700px) {
+      .card {
+        padding: 34px 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <div class="page">
+      <section class="card">
+
+        <img
+          class="logo"
+          src="../assets/branding/WerkFuchs_Logo_neu.svg"
+          alt="WerkFuchs Pro"
+        />
+
+        <h1>🧪 Anleitung für Tester</h1>
+
+        <p class="intro">
+          Vielen Dank, dass du WerkFuchs Pro testest.
+          Diese Anleitung führt dich Schritt für Schritt durch den Test.
+          Technische Vorkenntnisse brauchst du nicht.
+        </p>
+
+        <div class="important">
+          <strong>Ganz wichtig:</strong><br />
+          Bitte bleibe nach deiner Anmeldung mindestens
+          <strong>14 Tage ohne Unterbrechung</strong> im Google-Play-Testprogramm angemeldet.
+          Bitte verlasse das Testprogramm während dieser Zeit nicht.
+        </div>
+
+        <h2>1. Was du brauchst</h2>
+
+        <ul class="checklist">
+          <li>ein Android-Smartphone oder Android-Tablet</li>
+          <li>Zugang zum Google Play Store</li>
+          <li>ein Google-Konto</li>
+          <li>ein paar Minuten Zeit an mehreren Tagen während der Testphase</li>
+        </ul>
+
+        <h2>2. Hast du bereits ein Google-Konto?</h2>
+
+        <div class="step">
+          <h3>Sehr wahrscheinlich: ja.</h3>
+          <p>
+            Wenn du auf deinem Android-Handy Apps aus dem Google Play Store
+            installierst, bist du normalerweise bereits mit einem Google-Konto
+            angemeldet.
+          </p>
+
+          <p>
+            Öffne den <strong>Google Play Store</strong> und tippe oben rechts
+            auf dein Profilbild oder den Buchstaben im Kreis.
+            Dort siehst du die verwendete E-Mail-Adresse.
+          </p>
+        </div>
+
+        <h3>Noch kein Google-Konto?</h3>
+
+        <p>
+          Kein Problem. Ein Google-Konto ist kostenlos.
+          Du musst dafür nicht zwingend eine neue Gmail-Adresse anlegen.
+          Du kannst auch eine bereits vorhandene E-Mail-Adresse verwenden.
+        </p>
+
+        <div class="step">
+          <p><strong>So legst du ein Google-Konto an:</strong></p>
+          <ol>
+            <li>Öffne die Google-Konto-Anmeldung.</li>
+            <li>Wähle <strong>„Konto erstellen“</strong>.</li>
+            <li>Wähle <strong>„Für meine private Nutzung“</strong>.</li>
+            <li>Gib die verlangten grundlegenden Angaben ein.</li>
+            <li>
+              Wenn du deine bisherige E-Mail-Adresse verwenden möchtest,
+              wähle <strong>„Vorhandene E-Mail-Adresse verwenden“</strong>.
+            </li>
+            <li>Gib deine E-Mail-Adresse ein.</li>
+            <li>
+              Google sendet dir einen Bestätigungscode an diese Adresse.
+            </li>
+            <li>Gib den Code ein und schließe die Kontoerstellung ab.</li>
+            <li>
+              Melde dich anschließend mit diesem Google-Konto auf deinem
+              Android-Gerät im Google Play Store an.
+            </li>
+          </ol>
+
+          <div class="button-row">
+            <a
+              class="btn btn-secondary"
+              href="https://accounts.google.com/signup"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google-Konto erstellen
+            </a>
+          </div>
+        </div>
+
+        <h2>3. Am WerkFuchs-Test teilnehmen</h2>
+
+        <div class="step">
+          <span class="step-number">1</span>
+          <strong>Testlink öffnen</strong>
+          <p>
+            Du erhältst von Markus einen Link zum geschlossenen
+            Google-Play-Test von WerkFuchs Pro.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <strong>Mit dem richtigen Google-Konto öffnen</strong>
+          <p>
+            Öffne den Link mit demselben Google-Konto, das du auch auf deinem
+            Android-Gerät im Google Play Store verwendest.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <strong>Tester werden</strong>
+          <p>
+            Auf der Google-Seite bestätigst du, dass du am Test teilnehmen möchtest.
+            Tippe auf die entsprechende Schaltfläche zum Beitreten bzw. Testerwerden.
+          </p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">4</span>
+          <strong>WerkFuchs Pro installieren</strong>
+          <p>
+            Anschließend öffnest du den angebotenen Link zum Google Play Store
+            und installierst WerkFuchs Pro ganz normal über den Play Store.
+          </p>
+        </div>
+
+        <div class="important">
+          <strong>Bitte nicht aus dem Test austreten.</strong><br />
+          Für den Google-Play-Test ist entscheidend, dass du während der
+          gesamten Testzeit angemeldet bleibst. Auch wenn du an einem Tag
+          keine Zeit zum Testen hast, bitte nicht auf „Test verlassen“ oder
+          „Programm verlassen“ tippen.
+        </div>
+
+        <h2>4. Dein Testplan für die 14 Tage</h2>
+
+        <p>
+          Du musst nicht stundenlang testen. Wichtig ist, WerkFuchs Pro
+          tatsächlich zu benutzen und verschiedene Funktionen auszuprobieren.
+          Wenn etwas nicht funktioniert oder unverständlich ist, melde es bitte.
+        </p>
+
+        <div class="day">
+          <h3>Tag 1 – Installation und erster Start</h3>
+          <ol>
+            <li>WerkFuchs Pro über Google Play installieren.</li>
+            <li>App öffnen.</li>
+            <li>Registrierung bzw. Anmeldung durchführen.</li>
+            <li>Eine eigene Werkstatt anlegen oder einer Testwerkstatt beitreten.</li>
+            <li>Prüfen, ob Texte und Bedienung verständlich sind.</li>
+          </ol>
+        </div>
+
+        <div class="day">
+          <h3>Tag 2–4 – Inventar ausprobieren</h3>
+          <ol>
+            <li>Mindestens 3 unterschiedliche Gegenstände anlegen.</li>
+            <li>Einem Gegenstand ein Foto hinzufügen.</li>
+            <li>Kategorie und Lagerort verwenden.</li>
+            <li>Menge oder andere Angaben verändern.</li>
+            <li>Nach einem Gegenstand suchen.</li>
+            <li>Einen Eintrag bearbeiten und wieder speichern.</li>
+          </ol>
+        </div>
+
+        <div class="day">
+          <h3>Tag 5–7 – Werkstattfunktionen</h3>
+          <ol>
+            <li>Kategorien ansehen und ausprobieren.</li>
+            <li>QR-Code bzw. Scanner ausprobieren, wenn möglich.</li>
+            <li>Etikettenfunktion ansehen bzw. testen.</li>
+            <li>Prüfen, ob Lagerorte und Boxen verständlich funktionieren.</li>
+          </ol>
+        </div>
+
+        <div class="day">
+          <h3>Tag 8–10 – Einkauf und Projekte</h3>
+          <ol>
+            <li>Mindestens zwei Dinge auf die Einkaufsliste setzen.</li>
+            <li>Einen Eintrag als erledigt markieren.</li>
+            <li>Ein Testprojekt anlegen.</li>
+            <li>Die Projekt-/KI-Planung ausprobieren.</li>
+            <li>Prüfen, ob fehlende Materialien sinnvoll dargestellt werden.</li>
+          </ol>
+        </div>
+
+        <div class="day">
+          <h3>Tag 11–13 – Noch einmal im Alltag benutzen</h3>
+          <ol>
+            <li>WerkFuchs Pro erneut öffnen.</li>
+            <li>Einen vorhandenen Gegenstand suchen.</li>
+            <li>Einen neuen Gegenstand hinzufügen.</li>
+            <li>Eine bereits angelegte Information ändern.</li>
+            <li>
+              Achte besonders darauf, ob etwas langsam, unverständlich oder
+              umständlich wirkt.
+            </li>
+          </ol>
+        </div>
+
+        <div class="day">
+          <h3>Tag 14 – Abschluss</h3>
+          <ol>
+            <li>App noch einmal öffnen.</li>
+            <li>Prüfen, ob deine Daten weiterhin vorhanden sind.</li>
+            <li>Eine letzte Funktion deiner Wahl ausprobieren.</li>
+            <li>Abschließendes Feedback geben.</li>
+          </ol>
+        </div>
+
+        <h2>5. Worauf sollst du besonders achten?</h2>
+
+        <ul class="checklist">
+          <li>Stürzt die App irgendwo ab?</li>
+          <li>Bleibt sie hängen oder lädt ungewöhnlich lange?</li>
+          <li>Funktioniert ein Button nicht?</li>
+          <li>Ist eine Beschriftung unverständlich?</li>
+          <li>Fehlen Daten nach einem Neustart?</li>
+          <li>Funktionieren Fotos, Kamera oder Scanner nicht?</li>
+          <li>Sieht etwas auf deinem Handy falsch oder abgeschnitten aus?</li>
+          <li>Ist ein Arbeitsschritt unnötig kompliziert?</li>
+          <li>Fehlt dir eine Funktion, die du an dieser Stelle erwartet hättest?</li>
+        </ul>
+
+        <h2>6. Feedback geben</h2>
+
+        <p>
+          In WerkFuchs Pro gibt es einen eigenen
+          <strong>Feedback-Button</strong>. Bitte nutze ihn möglichst direkt,
+          wenn dir etwas auffällt.
+        </p>
+
+        <p>
+          Besonders hilfreich ist:
+        </p>
+
+        <ul>
+          <li>Was hast du gerade gemacht?</li>
+          <li>Was hast du erwartet?</li>
+          <li>Was ist stattdessen passiert?</li>
+          <li>Falls möglich: Screenshot mitschicken.</li>
+        </ul>
+
+        <div class="success">
+          <strong>Auch positives Feedback hilft.</strong><br />
+          Wenn etwas besonders einfach, sinnvoll oder angenehm funktioniert,
+          darfst du das ebenfalls gern schreiben. So wissen wir, was wir
+          möglichst nicht verschlimmbessern sollten. 🦊
+        </div>
+
+        <h2>7. Ganz wichtig während der 14 Tage</h2>
+
+        <ul class="checklist">
+          <li>
+            <strong>Nicht aus dem Google-Play-Testprogramm austreten.</strong>
+          </li>
+          <li>
+            WerkFuchs Pro bitte über Google Play installiert lassen, wenn möglich.
+          </li>
+          <li>
+            Die App an mehreren Tagen tatsächlich benutzen.
+          </li>
+          <li>
+            Fehler und Auffälligkeiten melden.
+          </li>
+          <li>
+            Updates aus dem Play Store installieren, wenn eines angeboten wird.
+          </li>
+        </ul>
+
+        <h2>8. Nach den 14 Tagen</h2>
+
+        <p>
+          Du musst zunächst nichts weiter tun. Bitte bleibe im Testprogramm,
+          bis Markus mitteilt, dass der Test abgeschlossen ist.
+        </p>
+
+        <p>
+          Mit deinem Test hilfst du dabei, WerkFuchs Pro für die Veröffentlichung
+          im Google Play Store vorzubereiten. Vielen Dank!
+        </p>
+
+        <div class="button-row">
+          <a class="btn" href="../">← Zurück zu WerkFuchs Pro</a>
+        </div>
+
+      </section>
+
+      <p class="footer">
+        WerkFuchs Pro · Testversion<br />
+        <a href="../datenschutz/">Datenschutz</a> ·
+        <a href="../impressum/">Impressum</a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>
