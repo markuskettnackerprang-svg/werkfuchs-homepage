@@ -322,11 +322,16 @@
         padding: 12px;
         box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
 
       .screenshot-card img {
         width: 100%;
-        height: auto;
+        height: 440px;
+        object-fit: contain;
+        object-position: top center;
         border-radius: 14px;
         display: block;
       }
