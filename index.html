@@ -302,6 +302,59 @@
           grid-column: 1 / -1;
         }
       }
+            .app-preview-intro {
+        max-width: 760px;
+        margin-bottom: 22px;
+        text-align: justify;
+      }
+
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        align-items: start;
+      }
+
+      .screenshot-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+        text-align: center;
+      }
+
+      .screenshot-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        display: block;
+      }
+
+      .screenshot-card h3 {
+        margin: 12px 0 6px;
+        font-size: 1rem;
+        color: var(--wf-blue);
+      }
+
+      .screenshot-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--wf-text-soft);
+        text-align: center;
+      }
+
+      @media (max-width: 1100px) {
+        .screenshots-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .screenshots-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
 
@@ -359,6 +412,41 @@
               die Einkaufsliste gehört.
             </p>
           </section>
+          
+      <section class="section">
+        <h2>Ein Blick in WerkFuchs Pro</h2>
+        <p class="app-preview-intro">
+          WerkFuchs Pro hilft dir nicht nur beim Verwalten deines Inventars,
+          sondern auch beim Erfassen neuer Gegenstände, beim Vorbereiten von
+          Projekten und beim Organisieren deiner Einkaufsliste.
+        </p>
+
+        <div class="screenshots-grid">
+          <article class="screenshot-card">
+            <img src="assets/screenshots/inventar.png" alt="Screenshot Inventar in WerkFuchs Pro" />
+            <h3>Inventar</h3>
+            <p>Behalte Werkzeuge, Material und Lagerorte im Blick.</p>
+          </article>
+
+          <article class="screenshot-card">
+            <img src="assets/screenshots/neuer-eintrag.png" alt="Screenshot Neuer Eintrag in WerkFuchs Pro" />
+            <h3>Neuer Eintrag</h3>
+            <p>Erfasse neue Gegenstände schnell per Formular, Kamera oder KI.</p>
+          </article>
+
+          <article class="screenshot-card">
+            <img src="assets/screenshots/projekt.png" alt="Screenshot Projekt vorbereiten in WerkFuchs Pro" />
+            <h3>Projekte planen</h3>
+            <p>Bereite Vorhaben mit Materialliste, Werkzeugen und KI-Unterstützung vor.</p>
+          </article>
+
+          <article class="screenshot-card">
+            <img src="assets/screenshots/einkaufsliste.png" alt="Screenshot Einkaufsliste in WerkFuchs Pro" />
+            <h3>Einkaufsliste</h3>
+            <p>Notiere fehlendes Material und behalte Nachkäufe im Blick.</p>
+          </article>
+        </div>
+      </section>
 
           <section class="section">
             <h2>Das kann WerkFuchs Pro bisher</h2>
