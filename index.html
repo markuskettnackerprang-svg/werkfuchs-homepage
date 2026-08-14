@@ -5,6 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WerkFuchs Pro</title>
     <link rel="icon" type="image/svg+xml" href="assets/branding/WerkFuchs_Logo_neu.svg" />
+
+          .screenshot-card img {
+        cursor: zoom-in;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.82);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        z-index: 9999;
+      }
+
+      .lightbox.open {
+        display: flex;
+      }
+
+      .lightbox img {
+        max-width: 92vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 14px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .lightbox-close {
+        position: fixed;
+        top: 18px;
+        right: 24px;
+        border: 0;
+        background: transparent;
+        color: white;
+        font-size: 2.5rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
     <style>
       :root {
         --wf-orange: #f58a1f;
@@ -362,7 +402,48 @@
       }
     </style>
   </head>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Bild schließen">
+        ×
+      </button>
+      <img id="lightboxImage" src="" alt="" />
+    </div>
 
+    <script>
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const lightboxClose = document.getElementById("lightboxClose");
+
+      document.querySelectorAll(".screenshot-card img").forEach((image) => {
+        image.addEventListener("click", () => {
+          lightboxImage.src = image.src;
+          lightboxImage.alt = image.alt;
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.src = "";
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+      });
+    </script>
+    
   <body>
     <main class="wrap">
       <div class="page">
@@ -417,7 +498,7 @@
               die Einkaufsliste gehört.
             </p>
           </section>
-          
+
       <section class="section">
         <h2>Ein Blick in WerkFuchs Pro</h2>
         <p class="app-preview-intro">
