@@ -118,7 +118,26 @@
         background: var(--wf-blue-soft);
         border: 1px solid #d8e5fb;
         border-radius: 16px;
-        padding: 16px;
+        padding: 24px;
+        text-align: center;
+      }
+
+      .invite-panel h2 {
+        margin: 0 0 10px;
+      }
+
+      .invite-panel .subtitle {
+        margin: 0;
+      }
+
+      .invite-panel .actions {
+        grid-template-columns: 1fr;
+        margin-top: 18px;
+      }
+
+      .invite-panel .btn-install {
+        max-width: 230px;
+        margin: 0 auto;
       }
 
       .token-box {
@@ -258,6 +277,11 @@
 
         .hero {
           grid-template-columns: 1.25fr 0.75fr;
+          align-items: start;
+        }
+
+        .invite-panel {
+          margin-top: 48px;
         }
 
         .feature-grid {
