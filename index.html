@@ -313,24 +313,9 @@
                 <a class="btn btn-install" href="https://expo.dev/artifacts/eas/peimK-mB6QMyiIZcKLCyojL_uzj02ssSlF3pQG5-6FA.apk">
                   WerkFuchs Pro installieren
                 </a>
-                <button class="btn btn-copy" id="copyBtn" type="button" hidden disabled>
-                  Einladungscode kopieren
-                </button>
-                <p class="status" id="copyStatus" aria-live="polite"></p>
               </div>
             </div>
           </div>
-
-          <section class="section" id="inviteSteps" hidden>
-            <h2 id="stepsTitle">So trittst du einem Workshop bei</h2>
-            <ol id="stepsList">
-              <li>Installiere WerkFuchs Pro auf deinem Android-Gerät.</li>
-              <li>Öffne die App.</li>
-              <li>Tippe oben rechts auf das Menü.</li>
-              <li>Wähle „Workshop beitreten“.</li>
-              <li>Füge den Einladungscode ein.</li>
-            </ol>
-          </section>
 
           <section class="section">
             <h2>Was ist WerkFuchs Pro?</h2>
@@ -459,42 +444,5 @@
       </div>
     </main>
 
-    <script>
-      (function () {
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get("token");
-
-        const tokenBox = document.getElementById("tokenBox");
-        const copyBtn = document.getElementById("copyBtn");
-        const copyStatus = document.getElementById("copyStatus");
-        const heroTitle = document.getElementById("heroTitle");
-        const inviteSteps = document.getElementById("inviteSteps");
-
-        if (token) {
-          heroTitle.textContent = "Du wurdest eingeladen";
-          inviteSteps.hidden = false;
-
-          tokenBox.innerHTML =
-            '<div class="token-box">' +
-            '<p class="token-label">Einladungscode:</p>' +
-            '<p class="token-value" id="tokenValue"></p>' +
-            "</div>";
-          document.getElementById("tokenValue").textContent = token;
-
-          copyBtn.hidden = false;
-          copyBtn.disabled = false;
-
-          copyBtn.addEventListener("click", async function () {
-            try {
-              await navigator.clipboard.writeText(token);
-              copyStatus.textContent = "Einladungscode wurde kopiert.";
-            } catch (error) {
-              copyStatus.textContent =
-                "Kopieren nicht möglich. Bitte Code manuell markieren.";
-            }
-          });
-        }
-      })();
-    </script>
   </body>
 </html>
